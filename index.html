@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Hello Node.js</title>
+</head>
+<body>
+    <h1>Hello Node.js</h1>
+    <button id="requestButton">Click to receive a response from the server</button>
+    <button id="removeButton">Click to remove text</button>
+    <h2 id="title"></h2>
+    
+    <script type="text/javascript">
+        //Event handler for button, makes AJAX request to end point
+        $("#requestButton").on("click", () => {
+            $.get("/hello", (response) => {
+                if(response) {
+                    $("#title").text(response);
+                } else {
+                    $("#title").text("No response");
+                }
+            });
+        });
+
+        //Removes text in order to try request again
+        $("#removeButton").on("click", () => {
+            $("#title").empty();
+        });    
+    </script>
+</body>
+</html>

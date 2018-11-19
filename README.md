@@ -2,5 +2,5 @@
 Node.js module for "Hello" Response
 
 ##Dependecies
-*express
-*body-parser
+* express
+* body-parser
